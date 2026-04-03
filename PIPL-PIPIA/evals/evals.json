@@ -1,0 +1,97 @@
+{
+  "skill_name": "PIPL-PIPIA",
+  "evals": [
+    {
+      "id": 1,
+      "name": "pipia-trigger-analysis",
+      "prompt": "我公司正在开发一款移动健康APP，收集用户身高、体重、血压、血糖数据，并提供健康建议。请问我们需要做PIPIA吗？请给出法律依据分析。",
+      "expected_output": "分析PIPL第55条触发条件，确定健康数据是否属于敏感PI（医疗健康类别），引用PIPL第28条敏感PI定义，给出明确结论及法律依据",
+      "files": [],
+      "assertions": [
+        {
+          "name": "cites_pipl_article_55",
+          "description": "Must cite PIPL Article 55 for PIPIA trigger conditions",
+          "check": "Output contains reference to 第五十五条 or Article 55 of PIPL"
+        },
+        {
+          "name": "cites_pipl_article_28",
+          "description": "Must cite PIPL Article 28 for sensitive PI definition since health data is involved",
+          "check": "Output contains reference to 第二十八条 or Article 28, and quotes the definition of sensitive PI including 医疗健康"
+        },
+        {
+          "name": "quotes_original_text",
+          "description": "Must quote original Chinese statutory text, not just summarize",
+          "check": "Output contains direct quotes in Chinese from PIPL articles, using quote marks or quote blocks"
+        },
+        {
+          "name": "clear_conclusion",
+          "description": "Must provide clear yes/no conclusion with legal reasoning",
+          "check": "Output states clear conclusion about whether PIPIA is required, with reasoning chain"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "cross-border-pathway",
+      "prompt": "我公司是上海一家电商企业（非CIIO），需要将用户订单数据（含姓名、地址、电话）传输给新加坡仓储合作伙伴。自今年1月起累计传输约50万用户数据。请分析适用哪种跨境传输路径。",
+      "expected_output": "按促进和规范数据跨境流动规定第5-8条分析跨境路径，判定是否适用安全评估/标准合同/认证/豁免，给出数据量计算和路径结论",
+      "files": [],
+      "assertions": [
+        {
+          "name": "cites_cross_border_regulation",
+          "description": "Must cite 促进和规范数据跨境流动规定 Article 5-8",
+          "check": "Output cites 促进和规范数据跨境流动规定 第五条/第七条/第八条"
+        },
+        {
+          "name": "calculates_data_volume",
+          "description": "Must calculate and state data volume against thresholds",
+          "check": "Output clearly states 50万 users and compares against 10万/100万 thresholds"
+        },
+        {
+          "name": "determines_pathway",
+          "description": "Must determine correct pathway (标准合同 based on 10万-100万 range for non-CIIO)",
+          "check": "Output correctly identifies 标准合同 pathway for non-CIIO with 50万 PI (between 10万-100万)"
+        },
+        {
+          "name": "mentions_pipia_requirement",
+          "description": "Must mention PIPIA requirement before cross-border transfer",
+          "check": "Output mentions PIPIA requirement per PIPL Article 55 or cross-border regulations"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "pipia-report-drafting",
+      "prompt": "请为我公司的人脸识别门禁系统起草一份PIPIA报告。系统收集员工面部特征用于办公楼门禁通行，涉及约2000名员工。",
+      "expected_output": "按GB/T 39335-2020模板起草PIPIA报告，包含11个章节，识别人脸为敏感PI（生物识别），引用PIPL第28、55、56条，完成风险分析",
+      "files": [],
+      "assertions": [
+        {
+          "name": "uses_correct_template",
+          "description": "Must follow GB/T 39335-2020 report structure with 11 sections",
+          "check": "Output contains sections matching template: 基本信息、评估对象描述、数据映射分析、合规性分析、风险源识别、个人权益影响分析、安全风险综合分析、保护措施有效性分析、风险处置建议、评估结论、附录"
+        },
+        {
+          "name": "identifies_face_as_sensitive_pi",
+          "description": "Must correctly identify facial recognition data as sensitive PI (生物识别)",
+          "check": "Output identifies 面部特征/人脸识别 as sensitive PI citing PIPL Article 28 生物识别 category"
+        },
+        {
+          "name": "cites_gbt_39335",
+          "description": "Must cite GB/T 39335-2020 methodology",
+          "check": "Output cites GB/T 39335-2020 for methodology (第5.4条、第5.5条、附录D etc.)"
+        },
+        {
+          "name": "includes_risk_level_determination",
+          "description": "Must determine risk level using GB/T 39335-2020 Appendix D methodology",
+          "check": "Output includes risk level determination (可能性、影响程度、风险等级) citing 附录D"
+        },
+        {
+          "name": "quotes_legal_text",
+          "description": "Every legal requirement analysis must quote original statutory text",
+          "check": "For each legal citation, original Chinese text is quoted (not just summarized)"
+        }
+      ]
+    }
+  ]
+}
