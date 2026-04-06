@@ -1,40 +1,48 @@
 ---
 name: output-format-guidance
-description: Standards for PIPIA report formatting and delivery
+description: PIPIA报告格式化和交付标准（V2版：含风险矩阵格式）
 type: reference
 ---
 
-# Output Format Guidance (输出格式指引)
+# 输出格式指引（V2版）
 
-This file defines the standards for PIPIA report formatting and delivery.
+本文件定义PIPIA报告格式化和交付标准，包括V2版新增的风险矩阵格式要求。
 
 ---
 
-## Report Format
+## 报告格式
 
-### Primary Output: Markdown (.md)
+### 主要输出：Markdown (.md)
 
-All PIPIA reports shall be delivered in **Markdown format** with the following standards:
+所有PIPIA报告应以**Markdown格式**交付，遵循以下标准：
 
-#### File Naming Convention
+#### 文件命名规范
 
 ```
 PIPIA_[评估对象名称]_[日期YYYYMMDD].md
 
-Examples:
-- PIPIA_XX移动APP_20250403.md
-- PIPIA_跨境电商平台用户数据出境_20250403.md
-- PIPIA_人脸识别门禁系统_20250403.md
+示例：
+PIPIA_XX移动APP_20250403.md
+PIPIA_跨境电商平台用户数据出境_20250403.md
+PIPIA_人脸识别门禁系统_20250403.md
+
+多情形命名规范：
+PIPIA_XX移动APP_敏感个人信息处理_20250403.md
+PIPIA_XX移动APP_自动化决策_20250403.md
+PIPIA_XX移动APP_跨境传输_20250403.md
+
+V2版命名规范：
+PIPIA_[评估对象]_[触发情形]_V2_[日期YYYYMMDD].md
 ```
 
-#### Markdown Formatting Standards
+#### Markdown格式标准
 
-1. **Headers**: Use standard Markdown headers (#, ##, ###)
-   - Title: `# 个人信息保护影响评估报告`
-   - Major sections: `## 一、基本信息`
-   - Subsections: `### 2.1 个人信息处理目的`
+1. **标题**：使用标准Markdown标题（#、##、###）
+   - 标题：`# 个人信息保护影响评估报告`
+   - 主要章节：`## 一、基本信息`
+   - 子章节：`### 2.1 个人信息处理目的`
 
-2. **Tables**: Use Markdown table syntax for data mapping, checklists, risk matrices
+2. **表格**：使用Markdown表格语法用于数据映射、检查清单、风险矩阵
    ```markdown
    | 信息类型 | 是否敏感PI | 收集场景 |
    |----------|------------|----------|
@@ -42,48 +50,215 @@ Examples:
    | 位置信息 | 是 | 导航 |
    ```
 
-3. **Legal citations**: Use quote blocks for statutory text
+3. **法律引用**：使用引用块展示法定原文
    ```markdown
    根据《个人信息保护法》第五十五条规定：
    
    > "有下列情形之一的，个人信息处理者应当事前进行个人信息保护影响评估..."
    ```
 
-4. **Lists**: Use bullet lists for enumerations, numbered lists for sequential steps
+4. **列表**：使用无序列表用于枚举、有序列表用于顺序步骤
 
-5. **Bold/Italic**: 
-   - **Bold** for key terms, conclusions, status indicators (✅/⚠️/❌)
-   - *Italic* for emphasis on specific points
-
----
-
-## Document Structure Requirements
-
-### Required Elements
-
-Every PIPIA report must contain:
-
-1. **Title header** with assessment object name
-2. **Basic information section** (评估责任方、时间、人员)
-3. **All 11 sections** per GB/T 39335-2020 template
-4. **Legal citations** with exact quoted text for every legal requirement analysis
-5. **Risk matrices** showing likelihood/impact/risk level
-6. **Clear conclusion** stating assessment outcome
-
-### Section Labels
-
-Use Chinese section labels matching GB/T 39335:
-- 一、二、三... for major sections (Chinese numerals)
-- 2.1, 2.2... for subsections (Arabic numerals)
+5. **粗体/斜体**：
+   - **粗体**用于关键术语、结论、状态指示符（✅/⚠️/❌）、风险等级
+   - *斜体*用于强调特定要点
 
 ---
 
-## Legal Citation Format
+## V2版核心格式要求
 
-### Standard Citation Pattern
+### 处理活动分组表格式
 
 ```markdown
-根据《[法律名称]》第[条文号]条规定：
+| 分组 | 处理活动名称 | 个人信息类型 | 法律依据 | 处理目的 | 收集来源 | 存储情况 |
+|------|-------------|-------------|---------|---------|---------|---------|
+| A | [名称] | [类型] | [条款] | [目的] | [来源] | [存储] |
+| B | [名称] | [类型] | [条款] | [目的] | [来源] | [存储] |
+```
+
+### 风险矩阵详表格式（核心）
+
+每组处理活动**必须**包含完整16项风险分析，格式如下：
+
+```markdown
+| # | 风险源维度 | 对个人权益的影响维度 | 安全事件可能性 | 影响程度 | 风险等级 | 相关责任方与风险处置建议 | 整改效果验证及归档情况 |
+|---|-----------|-------------------|--------------|---------|---------|----------------------|---------------------|
+| A-1 | 网络环境和技术措施 | 限制个人自主决定权 | [低/中/高/很高] | [低/中/高/严重] | [等级] | **责任方**：[部门]<br>**处置建议**：[建议] | [待验证/已完成] |
+| A-2 | 网络环境和技术措施 | 引发差别性待遇 | [等级] | [程度] | [等级] | **责任方**：[部门]<br>**处置建议**：[建议] | [状态] |
+| ... | ... | ... | ... | ... | ... | ... | ... |
+| A-16 | 业务特点和规模及安全态势 | 人身财产受损 | [等级] | [程度] | [等级] | **责任方**：[部门]<br>**处置建议**：[建议] | [状态] |
+```
+
+**格式要点**：
+- 编号格式：`[组号]-[序号]`（如A-1、A-2...A-16）
+- 风险源维度：固定4项（网络环境、处理流程、人员第三方、业务特点）
+- 影响维度：固定4项（自主决定权、差别性待遇、名誉精神、人身财产）
+- 风险等级：使用🟠高/🟡中/🟢低/🔴严重指示符
+- 处置建议：使用`**责任方**`和`**处置建议**`格式
+
+### 风险汇总表格式
+
+```markdown
+### X.6 处理活动X风险汇总
+
+| 风险等级 | 数量 | 占比 |
+|---------|------|------|
+| 严重 | [N] | [%] |
+| **高** | **[N]** | **[%]** |
+| 中 | [N] | [%] |
+| 低 | [N] | [%] |
+
+**处理活动X整体风险等级**：🔴严重/🟠高/🟡中/🟢低
+```
+
+### 综合评估结论格式
+
+```markdown
+## 七、综合评估结论
+
+### 7.1 各处理活动风险汇总
+
+| 处理活动 | 个人信息类型 | 高风险项数量 | 整体风险等级 |
+|---------|-------------|------------|-------------|
+| A | [类型] | [N项] | 🟠高/🟡中/🟢低 |
+| B | [类型] | [N项] | 🟠高/🟡中/🟢低 |
+| C | [类型] | [N项] | 🟠高/🟡中/🟢低 |
+
+### 7.2 总体风险等级
+
+**整体风险等级**：🔴严重/🟠高/🟡中/🟢低
+
+**判定依据**：
+- [N]组处理活动中，[M]组为高风险
+- [具体高风险项描述]
+```
+
+---
+
+## 文档结构要求
+
+### 必需元素
+
+每份PIPIA报告必须包含：
+
+1. **标题头**附评估对象名称
+2. **基本信息章节**（评估责任方、时间、人员）
+3. **法律依据与定义章节**（V2版新增）
+4. **处理活动分组与数据映射章节**（V2版核心）
+5. **各处理活动风险评估矩阵章节**（每组16项）
+6. **综合评估结论章节**
+7. **主要差距与整改建议章节**
+8. **整改效果验证计划章节**
+9. **法律引用**附每个法律要求分析的准确引用原文
+10. **明确结论**陈述评估结果
+
+### 章节标签
+
+使用中文章节标签匹配GB/T 39335：
+- 一、二、三...用于主要章节（中文数字）
+- 2.1、2.2...用于子章节（阿拉伯数字）
+
+---
+
+## 附录D强制引用格式要求
+
+### 安全事件可能性判定格式（附录D.1）
+
+每项安全事件可能性判定**必须**包含三要素：
+
+```markdown
+**安全事件发生可能性等级**：**[很低/低/中/高/很高]**
+
+**判定依据（GB/T 39335-2020表D.1/D.2）**：
+> "[引用表D.1或表D.2中对应等级的原文描述]"
+
+**分析说明**：[基于引用原文，说明为何判定为此等级]
+```
+
+**前置步骤要求**：
+报告必须注明已执行 `Grep pattern: "表D.1|表D.2"` 阅读原文。
+
+---
+
+### 影响程度判定格式（附录D.2）
+
+每项影响程度判定**必须**包含三要素：
+
+```markdown
+**影响程度**：**[低/中/高/严重]**
+
+**判定依据（GB/T 39335-2020表D.3/D.4）**：
+> "[引用表D.3或表D.4中对应等级和影响维度的原文描述]"
+
+**分析说明**：[基于引用原文，说明为何判定为此程度]
+```
+
+**前置步骤要求**：
+报告必须注明已执行 `Grep pattern: "表D.3|表D.4"` 阅读原文。
+
+---
+
+### 风险等级判定格式（附录D.3）
+
+每项风险等级判定**必须**包含三要素：
+
+```markdown
+**风险等级**：**[低/中/高/严重]**
+
+**判定依据（GB/T 39335-2020表D.5）**：
+> 根据表D.5，可能性[等级] × 影响程度[程度] = 风险等级[等级]
+
+**分析说明**：[说明可能性等级和影响程度的来源，以及矩阵交叉判定逻辑]
+```
+
+**前置步骤要求**：
+报告必须注明已执行 `Grep pattern: "表D.5"` 阅读原文。
+
+---
+
+### 附录D引用汇总表
+
+每份报告必须包含以下汇总表：
+
+```markdown
+| 判定项 | 引用附录 | 前置Grep执行 | 引用状态 |
+|-------|---------|-------------|---------|
+| 安全事件可能性 | 附录D.1 | 表D.1|表D.2 | ✅已执行/❌缺失 |
+| 影响程度 | 附录D.2 | 表D.3|表D.4 | ✅已执行/❌缺失 |
+| 风险等级 | 附录D.3 | 表D.5 | ✅已执行/❌缺失 |
+```
+
+---
+
+## 风险等级指示符
+
+### 标准指示符
+
+使用视觉指示符：
+- **严重风险**：🔴 需立即停止处理或采取紧急措施
+- **高风险**：🟠 需限期整改后方可继续
+- **中风险**：🟡 建议整改但可继续进行
+- **可接受**：🟢 可接受，持续监测
+
+### 风险等级判定表（引用GB/T 39335-2020附录D表D.5）
+
+```markdown
+| 可能性\影响 | 低 | 中 | 高 | 严重 |
+|------------|----|----|-----|------|
+| 低 | 🟢低 | 🟢低 | 🟡中 | 🟡中 |
+| 中 | 🟢低 | 🟡中 | 🟠高 | 🟠高 |
+| 高 | 🟡中 | 🟠高 | 🔴严重 | 🔴严重 |
+| 很高 | 🟡中 | 🟠高 | 🔴严重 | 🔴严重 |
+```
+
+---
+
+## 法律引用格式
+
+### 标准引用模式
+
+```markdown
+根据《[法律名称]》第[条款号]条规定：
 
 > "[引用原文]"
 
@@ -92,7 +267,7 @@ Use Chinese section labels matching GB/T 39335:
 **结论**：[基于分析的结论]
 ```
 
-### Example
+### 示例
 
 ```markdown
 根据《个人信息保护法》第二十八条规定：
@@ -104,110 +279,63 @@ Use Chinese section labels matching GB/T 39335:
 **结论**：用户位置信息为敏感个人信息，触发《个人信息保护法》第五十五条第一款规定的PIPIA要求。
 ```
 
-### Citation Requirements
+### 引用要求
 
-1. **Always cite article number**: "第X条" not just law name
-2. **Always quote original text**: In Chinese, using quote block
-3. **Cite from source file**: Reference the bundled law files, not memory
-4. **Cite specific provision**: For articles with multiple items, cite "(一)"/"(二)" etc.
-
----
-
-## Risk Matrix Format
-
-### Standard Risk Matrix Table
-
-```markdown
-| 可能性等级 | 影响程度 | 风险等级 | 判定依据 |
-|------------|----------|----------|----------|
-| [等级] | [程度] | [最终等级] | GB/T 39335-2020附录D表D.X |
-```
-
-### Risk Level Indicators
-
-Use visual indicators:
-- **极高风险**: 🔴 需立即整改
-- **高风险**: 🟠 需限期整改
-- **中风险**: 🟡 建议整改
-- **可接受**: 🟢 可继续进行
+1. **始终引用条款号**："第X条"而非仅法律名称
+2. **始终引用原文**：使用中文，使用引用块
+3. **从源文件引用**：引用捆绑法律文件，而非记忆
+4. **引用具体款项**：对于多项条款，引用"(一)"/"(二)"等
 
 ---
 
-## Delivery Package Structure
+## 交付包结构
 
-### Standard Delivery
+### 标准交付
 
-When delivering a completed PIPIA, provide:
+交付完成的PIPIA时，提供：
 
 ```
 [评估对象名称]_PIPIA交付包/
-├── PIPIA_[名称]_[日期].md        (主报告)
+├── PIPIA_[名称]_V2_[日期].md        (主报告)
 ├── 附录/
-│   ├── 数据映射详细表.md         (详细数据映射)
-│   ├── 风险评估工作表.md         (风险评估过程记录)
-│   └── 法律引用汇总.md           (所有引用条文汇总)
+│   ├── 数据映射详细表.md             (详细数据映射)
+│   ├── 风险评估工作表.md             (风险评估过程记录)
+│   └── 法律引用汇总.md               (所有引用条款汇总)
 └── 验证记录/
-    ├── 验证差距报告_v1.md        (第一次验证结果)
-    ├── 验证差距报告_v2.md        (修订后验证，如有)
-    └── 验证最终确认.md           (最终验证通过确认)
+    ├── 验证差距报告_v1.md            (第一次验证结果)
+    ├── 验证差距报告_v2.md            (修订后验证，如有)
+    └── 验证最终确认.md               (最终验证通过确认)
 ```
 
-### Minimal Delivery (When Time-Constrained)
+### 最小交付（时间受限时）
 
-Minimum deliverable:
-- PIPIA_[名称]_[日期].md (主报告，包含所有必要章节)
-- 验证差距报告_final.md (验证结果)
-
----
-
-## Appendix: Sample Report Header
-
-```markdown
-# 个人信息保护影响评估报告
-
-## 文档信息
-- 文档编号：PIPIA-2025-XXX
-- 版本：V1.0
-- 创建日期：2025年XX月XX日
-- 最后修订：2025年XX月XX日
-
-## 基本信息
-- 评估对象：[产品/服务/项目全称]
-- 评估责任部门：[部门名称]
-- 评估负责人：[姓名、职务]
-- 参与评估人员：
-  - [姓名] - [角色/职责]
-  - [姓名] - [角色/职责]
-- 评估时间：2025年XX月XX日 至 2025年XX月XX日
-
-## 声明
-本报告依据《中华人民共和国个人信息保护法》《信息安全技术 个人信息安全影响评估指南》(GB/T 39335-2020)及相关法律法规编制。报告中所有法律条文引用均来自原始法律文本，分析结论基于对法定要求的系统化对照评估。
-
----
-[报告正文开始]
-```
+最小交付物：
+- PIPIA_[名称]_V2_[日期].md（主报告，包含所有必要章节）
+- 验证差距报告_final.md（验证结果）
 
 ---
 
-## Quality Checklist Before Delivery
+## 交付前质量检查清单
 
-Before delivering any PIPIA report, verify:
+交付任何PIPIA报告前，验证：
 
-| Check Item | Requirement |
-|------------|-------------|
-| 所有法律引用有原文 | Each legal citation includes quoted text |
-| 引用条文号准确 | Article numbers are correct per source files |
-| 11章节完整 | All 11 sections per template present |
-| 风险等级有判定依据 | Risk level references GB/T 39335 Appendix D |
-| 结论明确 | Clear conclusion stating outcome |
-| 验证已完成 | Independent verification executed |
-| 验证差距已处理 | All verification gaps addressed or documented |
+| 检查项 | 要求 |
+|--------|------|
+| 所有法律引用有原文 | 每个法律引用包含引用文本 |
+| 引用条款号准确 | 条款号按源文件正确 |
+| 处理活动分组完整 | 有分组表且逻辑合理 |
+| 风险矩阵完整 | 每组16项分析完整 |
+| 风险等级有判定依据 | 风险等级引用GB/T 39335附录D |
+| 处置建议完整 | 每项风险有责任方和建议 |
+| 结论明确 | 清晰结论陈述结果 |
+| 验证已完成 | 独立验证已执行 |
+| 验证差距已处理 | 所有验证差距已解决或记录 |
 
 ---
 
-## Residual Gap Disclosure Format
+## 剩余差距披露格式
 
-If verification identifies gaps that cannot be fully remediated:
+如果验证识别出无法完全解决的差距：
 
 ```markdown
 ## ⚠️ 验证披露
@@ -217,8 +345,26 @@ If verification identifies gaps that cannot be fully remediated:
 ### 差距清单
 | 差距# | 法律要求 | 差距描述 | 建议 |
 |-------|----------|----------|------|
-| 1 | [条文] | [差距] | [建议措施] |
+| 1 | [条款] | [差距] | [建议措施] |
 
 ### 建议
 上述差距需由专业个人信息保护法律顾问或律师复核后再行使用。本报告不构成正式法律意见，仅供内部合规参考。
 ```
+
+---
+
+## V2版最终形成
+
+**报告结构**：N（处理活动组数）× 16 = 总风险分析项数
+
+**示例**：
+- 3组处理活动 × 16项 = 48项详细风险分析
+- 每项包含：风险等级、责任方、处置建议、验证状态
+
+**必须包含的表格**：
+1. 处理活动分组表
+2. 数据映射分析表（每组一个）
+3. 风险矩阵详表（每组一个，16项）
+4. 各处理活动风险汇总表
+5. 整改建议表（分优先级）
+6. 整改验证计划表

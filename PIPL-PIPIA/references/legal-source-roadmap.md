@@ -1,117 +1,117 @@
 ---
 name: legal-source-roadmap
-description: Decision tree for which laws apply to different PIPIA scenarios
+description: 不同PIPIA场景适用不同法律法规的决策树
 type: reference
 ---
 
-# Legal Source Roadmap (法律法规使用指引)
+# 法律法规使用指引
 
-Different PIPIA scenarios require different legal sources. Use this roadmap to determine which laws apply.
+不同PIPIA场景需要不同的法律来源。使用本路线图确定适用哪些法律。
 
-## Quick Decision Table
+## 快速决策表
 
-| PIPIA Scenario | Primary Sources | Supporting Sources | Key Provisions |
-|----------------|-----------------|-------------------|----------------|
-| **General PIPIA** | PIPL, GB/T 39335-2020 | 网络数据安全管理条例 | PIPL §55-56, GB/T 39335 §5 |
-| **Cross-border Transfer** | PIPL, 促进和规范数据跨境流动规定 | 数据出境安全评估办法, 个人信息出境认证办法, 个人信息出境标准合同备案指南 | PIPL §38-43, 跨境规定 §5-8 |
-| **Processing Sensitive PI** | PIPL §28-32 | 人脸识别技术应用安全管理办法 | PIPL §28 (definition), §29-32 (requirements) |
-| **Processing Children's PI** | PIPL, 儿童个人信息网络保护规定 | 未成年人网络保护条例 | PIPL §32, 儿童规定全文 |
-| **App/Internet Services** | PIPL, 电信和互联网用户个人信息保护规定 | App违法违规收集使用个人信息行为认定方法, 常见类型App必要个人信息范围规定 | 电信规定 §8-12, App认定方法 |
-| **Industrial/Telecom Sector** | 工业和信息化领域数据安全管理办法 | 工信领域数据安全风险评估实施细则, 工信领域数据安全事件应急预案 | 管理办法 §13-25, 实施细则 §5-6 |
-| **Automated Decision-making** | PIPL §24, 网络数据安全管理条例 | 互联网信息服务算法推荐管理规定 | PIPL §24, 算法规定 §6-14 |
-| **GBA Cross-border** | 粤港澳大湾区个人信息跨境流动标准合同实施指引 | 标准合同、承诺书模板 | 实施指引 §4-5 (PIPIA requirements) |
-
----
-
-## Primary Sources (Mandatory Reading for ALL PIPIA)
-
-| File | Content | Scope | When to Use |
-|------|---------|-------|-------------|
-| `GB∕T39335-2020 个人信息安全影响评估指南.md` | PIPIA Methodology Standard | Full assessment methodology, workflow, risk analysis framework | **ALL PIPIA drafting** - this defines the structure and process |
-| `laws/中华人民共和国个人信息保护法_中国人大网.md` | PIPL (个人信息保护法) | §§1-74 | Legal basis for PIPIA, processing rules, rights, obligations |
+| PIPIA场景 | 主要来源 | 支持来源 | 关键条款 |
+|-----------|----------|----------|----------|
+| **一般PIPIA** | PIPL、GB/T 39335-2020 | 网络数据安全管理条例 | PIPL §55-56、GB/T 39335 §5 |
+| **跨境传输** | PIPL、促进和规范数据跨境流动规定 | 数据出境安全评估办法、个人信息出境认证办法、个人信息出境标准合同备案指南 | PIPL §38-43、跨境规定 §5-8 |
+| **处理敏感PI** | PIPL §28-32 | 人脸识别技术应用安全管理办法 | PIPL §28（定义）、§29-32（要求） |
+| **处理儿童PI** | PIPL、儿童个人信息网络保护规定 | 未成年人网络保护条例 | PIPL §32、儿童规定全文 |
+| **App/互联网服务** | PIPL、电信和互联网用户个人信息保护规定 | App违法违规收集使用个人信息行为认定方法、常见类型App必要个人信息范围规定 | 电信规定 §8-12、App认定方法 |
+| **工业/电信行业** | 工业和信息化领域数据安全管理办法 | 工信领域数据安全风险评估实施细则、工信领域数据安全事件应急预案 | 管理办法 §13-25、实施细则 §5-6 |
+| **自动化决策** | PIPL §24、网络数据安全管理条例 | 互联网信息服务算法推荐管理规定 | PIPL §24、算法规定 §6-14 |
+| **大湾区跨境** | 粤港澳大湾区个人信息跨境流动标准合同实施指引 | 标准合同、承诺书模板 | 实施指引 §4-5（PIPIA要求） |
 
 ---
 
-## Cross-Border Data Transfer Laws (跨境传输法律)
+## 主要来源（所有PIPIA强制阅读）
 
-**Read these when PIPIA involves cross-border transfer of personal information:**
-
-| File | Content | Key Articles | When Required |
-|------|---------|--------------|---------------|
-| `laws/促进和规范数据跨境流动规定.md` | Cross-border Data Flow Regulation | §5 (exemptions), §7-8 (thresholds) | **ALWAYS** for cross-border PIPIA - determines which pathway applies |
-| `laws/数据出境安全评估办法 网信办.md` | Data Export Security Assessment | §2-5 (trigger conditions) | When CII operator, or ≥100万 PI / ≥1万 sensitive PI to foreign |
-| `laws/个人信息出境认证办法.md` | PI Export Certification | §5-6 (thresholds, PIPIA content) | When 10万-100万 PI / <1万 sensitive PI (non-CII) |
-| `laws/个人信息出境标准合同备案指南（第二版）.md` | Standard Contract Filing Guide | Contract template, filing process | When using standard contract pathway |
-| `laws/数据出境安全评估申报指南（第三版）.md` | Data Export Assessment Filing Guide | Filing process, self-assessment template | When filing for security assessment |
-| `laws/粤港澳大湾区（内地、香港）个人信息跨境流动标准合同实施指引.md` | GBA Standard Contract Implementation | §4-5 (PIPIA requirements) | When transferring PI within Guangdong-Hong Kong-Macao Greater Bay Area |
-| `laws/数据出境安全管理政策问答（2025年4月）.md` | Policy Q&A (Apr 2025) | Practical guidance | For clarification on cross-border rules |
-| `laws/数据出境安全管理政策问答（2025年5月）.md` | Policy Q&A (May 2025) | Practical guidance | For clarification on cross-border rules |
-| `laws/数据出境安全管理政策问答（2025年10月）.md` | Policy Q&A (Oct 2025) | Practical guidance | For clarification on cross-border rules |
+| 文件 | 内容 | 范围 | 何时使用 |
+|------|------|------|----------|
+| `GB∕T39335-2020 个人信息安全影响评估指南.md` | PIPIA方法论标准 | 完整评估方法论、工作流程、风险分析框架 | **所有PIPIA起草**——定义结构和流程 |
+| `laws/中华人民共和国个人信息保护法_中国人大网.md` | PIPL（个人信息保护法） | §§1-74 | PIPIA法律依据、处理规则、权利、义务 |
 
 ---
 
-## Sector-Specific Laws (行业特定法律)
+## 跨境数据传输法律
 
-**Read these when PIPIA involves specific sectors or data types:**
+**当PIPIA涉及个人信息跨境传输时阅读这些文件：**
 
-| File | Content | Key Articles | When Required |
-|------|---------|--------------|---------------|
-| `laws/工业和信息化领域数据安全管理办法（试行）.md` | Industry & IT Data Security Measures | §13-25 (lifecycle management) | When processing industrial/telecom/radio data |
-| `laws/工业和信息化领域数据安全风险评估实施细则（试行）.md` | Industry Data Security Risk Assessment | §5-6 (assessment content) | For important/core data in industrial/telecom sector |
-| `laws/工业和信息化领域数据安全事件应急预案(试行).md` | Industry Data Security Incident Response | Event classification, response procedures | For incident-related PIPIA in industrial/telecom sector |
-| `laws/常见类型移动互联网应用程序必要个人信息范围规定-中共中央网络安全和信息化委员会办公室.md` | App Necessary PI Scope | §5 (39 app types) | **MANDATORY** when assessing mobile app PI collection necessity |
-| `laws/电信和互联网用户个人信息保护规定-工信部.md` | Telecom & Internet User PI Protection | §8-13 (collection, security measures) | When processing PI in telecom/internet services |
-| `laws/人脸识别技术应用安全管理办法.md` | Face Recognition Security | Processing requirements | When processing facial recognition biometric data |
-
----
-
-## General Data Protection Laws (通用数据保护法律)
-
-| File | Content | When Required |
-|------|---------|---------------|
-| `laws/网络安全法.md` | Cybersecurity Law | When assessing network security measures, CII operator obligations |
-| `laws/中华人民共和国数据安全法_中国人大网.md` | Data Security Law | When assessing data classification, security protection measures |
-| `laws/网络数据安全管理条例.md` | Network Data Security Regulation | Detailed processing rules, cross-border transfer, security measures |
-| `laws/个人信息保护合规审计管理办法_中央网络安全和信息化委员会办公室.md` | PI Protection Compliance Audit Rules | When conducting compliance audits, audit requirements |
+| 文件 | 内容 | 关键条款 | 适用时机 |
+|------|------|----------|----------|
+| `laws/促进和规范数据跨境流动规定.md` | 跨境数据流动规定 | §5（豁免）、§7-8（阈值） | **始终**用于跨境PIPIA——确定适用路径 |
+| `laws/数据出境安全评估办法 网信办.md` | 数据出境安全评估 | §2-5（触发条件） | 当CIIO、或≥100万PI / ≥1万敏感PI出境 |
+| `laws/个人信息出境认证办法.md` | 个人信息出境认证 | §5-6（阈值、PIPIA内容） | 当10万-100万PI / <1万敏感PI（非CIIO） |
+| `laws/个人信息出境标准合同备案指南（第二版）.md` | 标准合同备案指南 | 合同模板、备案流程 | 当使用标准合同路径 |
+| `laws/数据出境安全评估申报指南（第三版）.md` | 数据出境评估申报指南 | 申报流程、自评估模板 | 当申报安全评估 |
+| `laws/粤港澳大湾区（内地、香港）个人信息跨境流动标准合同实施指引.md` | 大湾区标准合同实施 | §4-5（PIPIA要求） | 当在粤港澳大湾区范围内传输PI |
+| `laws/数据出境安全管理政策问答（2025年4月）.md` | 政策问答（2025年4月） | 实务指引 | 用于跨境规则澄清 |
+| `laws/数据出境安全管理政策问答（2025年5月）.md` | 政策问答（2025年5月） | 实务指引 | 用于跨境规则澄清 |
+| `laws/数据出境安全管理政策问答（2025年10月）.md` | 政策问答（2025年10月） | 实务指引 | 用于跨境规则澄清 |
 
 ---
 
-## Special Subject Protection (特殊主体保护)
+## 行业特定法律
 
-| File | Content | When Required |
-|------|---------|---------------|
-| `laws/儿童个人信息网络保护规定 网信办.md` | Children's PI Protection Rules | **MANDATORY** when processing involves children under 14 |
-| `laws/未成年人网络保护条例.md` | Minors Network Protection Regulation | When processing involves minors, special protection requirements |
+**当PIPIA涉及特定行业或数据类型时阅读这些文件：**
 
----
-
-## Compliance Assessment Tools (合规认定工具)
-
-| File | Content | When Required |
-|------|---------|---------------|
-| `laws/App违法违规收集使用个人信息行为认定方法-中共中央网络安全和信息化委员会办公室.md` | App PI Collection Violation Identification | When assessing mobile app compliance, collection practices |
+| 文件 | 内容 | 关键条款 | 适用时机 |
+|------|------|----------|----------|
+| `laws/工业和信息化领域数据安全管理办法（试行）.md` | 工业和信息化领域数据安全管理办法 | §13-25（生命周期管理） | 当处理工业/电信/无线电数据 |
+| `laws/工业和信息化领域数据安全风险评估实施细则（试行）.md` | 工信领域数据安全风险评估实施细则 | §5-6（评估内容） | 用于工业/电信领域重要/核心数据 |
+| `laws/工业和信息化领域数据安全事件应急预案(试行).md` | 工信领域数据安全事件应急预案 | 事件分类、响应程序 | 用于工业/电信领域事件相关PIPIA |
+| `laws/常见类型移动互联网应用程序必要个人信息范围规定-中共中央网络安全和信息化委员会办公室.md` | App必要个人信息范围规定 | §5（39类App） | **强制**用于评估移动App收集必要性 |
+| `laws/电信和互联网用户个人信息保护规定-工信部.md` | 电信和互联网用户个人信息保护规定 | §8-13（收集、安全措施） | 当在电信/互联网服务中处理PI |
+| `laws/人脸识别技术应用安全管理办法.md` | 人脸识别技术应用安全管理 | 处理要求 | 当处理人脸识别生物识别数据 |
 
 ---
 
-## Terminology Reference (术语参考)
+## 通用数据保护法律
 
-| File | Content | When Required |
-|------|---------|---------------|
-| `laws/数据领域常用名词解释（第一批）.md` | Data Terms (Batch 1) | For understanding key terms: 数据, 数据处理, 数据安全, 隐私保护计算, etc. |
-| `laws/数据领域常用名词解释（第二批）.md` | Data Terms (Batch 2) | For understanding key terms: 数据产权, 衍生数据, 可信数据空间, etc. |
+| 文件 | 内容 | 适用时机 |
+|------|------|----------|
+| `laws/网络安全法.md` | 网络安全法 | 当评估网络安全措施、CIIO义务 |
+| `laws/中华人民共和国数据安全法_中国人大网.md` | 数据安全法 | 当评估数据分类、安全保护措施 |
+| `laws/网络数据安全管理条例.md` | 网络数据安全管理条例 | 详细处理规则、跨境传输、安全措施 |
+| `laws/个人信息保护合规审计管理办法_中央网络安全和信息化委员会办公室.md` | 个人信息保护合规审计管理办法 | 当开展合规审计、审计要求 |
 
 ---
 
-## Usage Instructions
+## 特殊主体保护
 
-**All files contain Chinese legal text.** Use targeted reading:
-- Search for specific article numbers (e.g., "第五十五条" for PIPIA requirements)
-- Use Grep to find key terms before reading specific portions
-- Read only the sections relevant to the current assessment
+| 文件 | 内容 | 适用时机 |
+|------|------|----------|
+| `laws/儿童个人信息网络保护规定 网信办.md` | 儿童个人信息网络保护规定 | **强制**当处理涉及不满14周岁儿童 |
+| `laws/未成年人网络保护条例.md` | 未成年人网络保护条例 | 当处理涉及未成年人、特殊保护要求 |
 
-**Reading sequence for typical PIPIA:**
-1. Start with Legal Source Roadmap table above to identify applicable laws
-2. Always read PIPL §55-56 and GB/T 39335-2020 §5
-3. Add cross-border laws if transfer abroad is involved
-4. Add sector-specific laws based on industry
-5. Add special subject laws if children/minors involved
+---
+
+## 合规认定工具
+
+| 文件 | 内容 | 适用时机 |
+|------|------|----------|
+| `laws/App违法违规收集使用个人信息行为认定方法-中共中央网络安全和信息化委员会办公室.md` | App违法违规收集使用个人信息行为认定方法 | 当评估移动App合规性、收集行为 |
+
+---
+
+## 术语参考
+
+| 文件 | 内容 | 适用时机 |
+|------|------|----------|
+| `laws/数据领域常用名词解释（第一批）.md` | 数据术语（第一批） | 用于理解关键术语：数据、数据处理、数据安全、隐私保护计算等 |
+| `laws/数据领域常用名词解释（第二批）.md` | 数据术语（第二批） | 用于理解关键术语：数据产权、衍生数据、可信数据空间等 |
+
+---
+
+## 使用说明
+
+**所有文件包含中文法律文本。** 使用针对性阅读：
+- 搜索特定条款号（如"第五十五条"用于PIPIA要求）
+- 使用Grep在阅读特定部分前查找关键术语
+- 仅阅读与当前评估相关的章节
+
+**典型PIPIA阅读顺序：**
+1. 从法律法规使用指引表开始确定适用法律
+2. 始终阅读 PIPL §55-56 和 GB/T 39335-2020 §5
+3. 如涉及出境，添加跨境法律
+4. 根据行业添加行业特定法律
+5. 如涉及儿童/未成年人，添加特殊主体法律

@@ -1,238 +1,259 @@
 ---
 name: verification-checklist
-description: Structured checklist for independent PIPIA verification
+description: PIPIA独立验证的结构化检查清单（V2版：含处理活动分组和风险矩阵验证）
 type: reference
 ---
 
-# PIPIA Verification Checklist (PIPIA验证检查清单)
+# PIPIA验证检查清单（V2版）
 
-Use this checklist when performing independent verification of a PIPIA report.
+在执行PIPIA报告独立验证时使用此检查清单。
 
 ---
 
-## Pre-Verification Execution Protocol
+## 验证前执行协议
 
-**MANDATORY: Execute these reads BEFORE starting verification.**
+**强制要求：开始验证前执行这些读取操作。**
 
-### Step 1 — Read Primary Legal Sources
-Execute these commands in order:
+### 步骤1——阅读主要法律来源
+
+按顺序执行这些命令：
 
 ```
-1. Grep pattern: "第五十五条" on laws/中华人民共和国个人信息保护法_中国人大网.md
-   → Read the complete Article 55 text
+1. 在 laws/中华人民共和国个人信息保护法_中国人大网.md 上执行 Grep pattern: "第五十五条"
+   → 阅读完整的第五十五条文本
 
-2. Grep pattern: "第五十六条" on same file
-   → Read the complete Article 56 text
+2. 在同一文件上执行 Grep pattern: "第五十六条"
+   → 阅读完整的第五十六条文本
 
-3. Read GB/T 39335-2020 Section 5 (评估实施流程)
+3. 阅读 GB/T 39335-2020 第5章（评估实施流程）
 ```
 
-### Step 2 — Read Scenario-Specific Sources
-Based on the report content, read applicable laws per `references/legal-source-roadmap.md`:
-- Cross-border? → Read 促进和规范数据跨境流动规定 §5-8
-- Sensitive PI? → Read PIPL §28-32
-- Children's PI? → Read 儿童个人信息网络保护规定
-- App? → Read 常见类型App必要个人信息范围规定
+### 步骤2——阅读场景特定来源
 
-### Step 3 — Verify Source Access
-Confirm you have read the actual source files. If any read fails:
-- **STOP verification**
-- Report: "无法读取[文件/条款]原文，无法完成验证"
-- Do NOT proceed with partial verification
+根据报告内容，按 `references/legal-source-roadmap.md` 阅读适用法律：
+- 跨境传输？→ 阅读促进和规范数据跨境流动规定 §5-8
+- 敏感PI？→ 阅读PIPL §28-32
+- 儿童PI？→ 阅读儿童个人信息网络保护规定
+- App？→ 阅读常见类型App必要个人信息范围规定
 
----
+### 步骤3——验证来源访问
 
-## Checklist: Legal Requirements (PIPL §55-56)
-
-### Article 55 Trigger Conditions (第五十五条触发条件)
-
-**After reading PIPL §55, fill in the complete quoted text for each requirement:**
-
-| # | Requirement | Source Text (Quote COMPLETE provision from PIPL §55) | Report Coverage | Status |
-|---|-------------|------------------------------------------------------|-----------------|--------|
-| 55.1 | 处理敏感个人信息 | [Quote: "有下列情形之一的，个人信息处理者应当事前进行个人信息保护影响评估...（一）处理敏感个人信息..."] | [Check report §2.2] | ✅/⚠️/❌ |
-| 55.2 | 利用个人信息进行自动化决策 | [Quote complete text from §55（二）] | [Check report §2.3] | ✅/⚠️/❌ |
-| 55.3 | 委托处理/向他人提供/公开 | [Quote complete text from §55（三）] | [Check report §2.5] | ✅/⚠️/❌ |
-| 55.4 | 向境外提供个人信息 | [Quote complete text from §55（四）] | [Check report cross-border section] | ✅/⚠️/❌ |
-| 55.5 | 其他对个人权益有重大影响 | [Quote complete text from §55（五）] | [Check report §6] | ✅/⚠️/❌ |
-
-**Verification notes:**
-- The Source Text column must contain the COMPLETE quoted provision, not truncated snippets
-- Check if report correctly identifies which trigger condition(s) apply
-- If multiple triggers, all must be addressed
-
-### Article 56 Content Requirements (第五十六条内容要求)
-
-**After reading PIPL §56, fill in the complete quoted text:**
-
-| # | Requirement | Source Text (Quote COMPLETE provision from PIPL §56) | Report Coverage | Status |
-|---|-------------|------------------------------------------------------|-----------------|--------|
-| 56.1 | 处理目的、方式等是否合法、正当、必要 | [Quote: "个人信息保护影响评估应当包括下列内容：（一）个人信息的处理目的、处理方式等是否合法、正当、必要..."] | [Check report §4] | ✅/⚠️/❌ |
-| 56.2 | 对个人权益的影响及安全风险 | [Quote complete text from §56（二）] | [Check report §6-7] | ✅/⚠️/❌ |
-| 56.3 | 保护措施是否合法、有效并与风险相适应 | [Quote complete text from §56（三）] | [Check report §8] | ✅/⚠️/❌ |
-| 56.4 | 评估结论 | [Quote: 报告应包含明确评估结论] | [Check report §10] | ✅/⚠️/❌ |
+确认你已阅读实际源文件。如有任何读取失败：
+- **停止验证**
+- 报告："无法读取[文件/条款]原文，无法完成验证"
+- 切勿继续进行部分验证
 
 ---
 
-## Checklist: Methodology Requirements (GB/T 39335-2020)
+## 检查清单：V2版结构要求（核心新增）
 
-**MANDATORY: Read GB/T 39335-2020 relevant sections before verification.**
+### 处理活动分组验证
 
-### Section 5.3 数据映射分析
+| # | 要求 | 来源依据 | 报告覆盖 | 状态 |
+|---|------|---------|----------|------|
+| V2.1 | 报告是否包含处理活动分组表 | GB/T 39335-2020 §5.3 数据映射分析 | [检查§3] | ✅/⚠️/❌ |
+| V2.2 | 分组是否按事实性逻辑划分 | 处理目的、信息类型、处理方式等 | [检查分组逻辑] | ✅/⚠️/❌ |
+| V2.3 | 每组处理活动是否相对独立 | 便于分类评估 | [检查各组独立性] | ✅/⚠️/❌ |
+| V2.4 | 分组数量是否合理 | 通常2-6组为宜 | [检查组数] | ✅/⚠️/❌ |
 
-| # | Requirement | Source Text (Quote from GB/T 39335-2020) | Report Coverage | Status |
-|---|-------------|------------------------------------------|-----------------|--------|
-| 5.3.1 | 个人信息类型列表 | [Quote §5.3 requirement] | [Check report §3] | ✅/⚠️/❌ |
-| 5.3.2 | 处理目的说明 | [Quote §5.3 requirement] | [Check report §2.1] | ✅/⚠️/❌ |
-| 5.3.3 | 收集来源和方法 | [Quote §5.3 requirement] | [Check report §2.3] | ✅/⚠️/❌ |
-| 5.3.4 | 存储位置和期限 | [Quote §5.3 requirement] | [Check report §2.3] | ✅/⚠️/❌ |
-| 5.3.5 | 第三方处理情况 | [Quote §5.3 requirement] | [Check report §2.5] | ✅/⚠️/❌ |
+### 4×4风险矩阵验证
 
-### Section 5.4 风险源识别
+**对每组处理活动，验证以下16项分析是否完整：**
 
-| # | Dimension | Source Text (Quote from GB/T 39335-2020 §5.4) | Report Coverage | Status |
-|---|-----------|-----------------------------------------------|-----------------|--------|
-| 5.4.a | 网络环境和技术措施 | [Quote §5.4 a) requirement] | [Check report §5.1] | ✅/⚠️/❌ |
-| 5.4.b | 个人信息处理流程 | [Quote §5.4 b) requirement] | [Check report §5.2] | ✅/⚠️/❌ |
-| 5.4.c | 参与人员与第三方 | [Quote §5.4 c) requirement] | [Check report §5.3] | ✅/⚠️/❌ |
-| 5.4.d | 业务特点和规模及安全态势 | [Quote §5.4 d) requirement] | [Check report §5.4] | ✅/⚠️/❌ |
+| # | 要求 | 来源依据 | 检查项 | 状态 |
+|---|------|---------|-------|------|
+| V2.5 | 风险源维度1：网络环境和技术措施分析 | GB/T 39335-2020 §5.4 a) | [检查§X.2.1] | ✅/⚠️/❌ |
+| V2.6 | 风险源维度2：个人信息处理流程分析 | GB/T 39335-2020 §5.4 b) | [检查§X.2.2] | ✅/⚠️/❌ |
+| V2.7 | 风险源维度3：参与人员与第三方分析 | GB/T 39335-2020 §5.4 c) | [检查§X.2.3] | ✅/⚠️/❌ |
+| V2.8 | 风险源维度4：业务特点和规模及安全态势分析 | GB/T 39335-2020 §5.4 d) | [检查§X.2.4] | ✅/⚠️/❌ |
+| V2.9 | 权益影响维度1：限制个人自主决定权 | GB/T 39335-2020 §5.5 a) | [检查§X.3.1] | ✅/⚠️/❌ |
+| V2.10 | 权益影响维度2：引发差别性待遇 | GB/T 39335-2020 §5.5 b) | [检查§X.3.2] | ✅/⚠️/❌ |
+| V2.11 | 权益影响维度3：个人名誉受损或遭受精神压力 | GB/T 39335-2020 §5.5 c) | [检查§X.3.3] | ✅/⚠️/❌ |
+| V2.12 | 权益影响维度4：人身财产受损 | GB/T 39335-2020 §5.5 d) | [检查§X.3.4] | ✅/⚠️/❌ |
 
-### Section 5.5 个人权益影响分析
+### 风险矩阵详表验证
 
-| # | Impact Dimension | Source Text (Quote from GB/T 39335-2020 §5.5) | Report Coverage | Status |
-|---|------------------|-----------------------------------------------|-----------------|--------|
-| 5.5.1 | 限制个人自主决定权 | [Quote §5.5 impact dimension 1] | [Check report §6.2] | ✅/⚠️/❌ |
-| 5.5.2 | 引发差别性待遇 | [Quote §5.5 impact dimension 2] | [Check report §6.2] | ✅/⚠️/❌ |
-| 5.5.3 | 个人名誉受损或遭受精神压力 | [Quote §5.5 impact dimension 3] | [Check report §6.2] | ✅/⚠️/❌ |
-| 5.5.4 | 人身财产受损 | [Quote §5.5 impact dimension 4] | [Check report §6.2] | ✅/⚠️/❌ |
+| # | 要求 | 来源依据 | 检查项 | 状态 |
+|---|------|---------|-------|------|
+| V2.13 | 每组处理活动是否有完整16项风险分析 | 4风险源×4影响维度=16项 | [计数检查] | ✅/⚠️/❌ |
+| V2.14 | 每项风险分析是否包含：安全事件可能性等级 | GB/T 39335-2020 附录D | [检查表格列] | ✅/⚠️/❌ |
+| V2.15 | 每项风险分析是否包含：影响程度 | GB/T 39335-2020 附录D表D.4 | [检查表格列] | ✅/⚠️/❌ |
+| V2.16 | 每项风险分析是否包含：风险等级 | GB/T 39335-2020 附录D表D.5 | [检查表格列] | ✅/⚠️/❌ |
+| V2.17 | 每项风险分析是否包含：相关责任方与风险处置建议 | GB/T 39335-2020 §5.8 | [检查表格列] | ✅/⚠️/❌ |
+| V2.18 | 每项风险分析是否包含：整改效果验证及归档情况 | GB/T 39335-2020 §5.8 | [检查表格列] | ✅/⚠️/❌ |
+| V2.19 | 风险等级判定是否引用附录D表D.5 | GB/T 39335-2020 附录D | [检查判定依据] | ✅/⚠️/❌ |
 
-### Section 5.6 安全风险综合分析
+### 附录D.1-D.4强制引用验证
 
-| # | Requirement | Source Text (Quote from GB/T 39335-2020 §5.6/Appendix D) | Report Coverage | Status |
-|---|-------------|----------------------------------------------------------|-----------------|--------|
-| 5.6.1 | 安全事件可能性分析 | [Quote §5.6/Appendix D.1-D.2] | [Check report §7.1] | ✅/⚠️/❌ |
-| 5.6.2 | 影响程度判定 | [Quote Appendix D.3-D.4] | [Check report §6.3] | ✅/⚠️/❌ |
-| 5.6.3 | 风险等级判定 | [Quote Appendix D.5 risk matrix] | [Check report §7.2] | ✅/⚠️/❌ |
+| # | 要求 | 来源依据 | 检查项 | 状态 |
+|---|------|---------|-------|------|
+| V2.D1 | 安全事件可能性判定是否执行Grep阅读表D.1/D.2 | GB/T 39335-2020 附录D.1 | [检查前置步骤执行] | ✅/⚠️/❌ |
+| V2.D2 | 每个可能性判定是否引用表D.1或表D.2原文 | GB/T 39335-2020 附录D.1 | [检查引用格式] | ✅/⚠️/❌ |
+| V2.D3 | 可能性判定引用格式是否正确（包含等级、依据、说明） | 方法论要求 | [检查三要素完整] | ✅/⚠️/❌ |
+| V2.D4 | 影响程度判定是否执行Grep阅读表D.3/D.4 | GB/T 39335-2020 附录D.2 | [检查前置步骤执行] | ✅/⚠️/❌ |
+| V2.D5 | 每个影响程度判定是否引用表D.3或表D.4原文 | GB/T 39335-2020 附录D.2 | [检查引用格式] | ✅/⚠️/❌ |
+| V2.D6 | 影响程度判定引用格式是否正确（包含程度、依据、说明） | 方法论要求 | [检查三要素完整] | ✅/⚠️/❌ |
+| V2.D7 | 风险等级判定是否执行Grep阅读表D.5 | GB/T 39335-2020 附录D.3 | [检查前置步骤执行] | ✅/⚠️/❌ |
+| V2.D8 | 风险等级判定是否引用表D.5矩阵交叉结果 | GB/T 39335-2020 附录D.3 | [检查矩阵引用] | ✅/⚠️/❌ |
 
-### Section 5.7 评估报告
+### 各处理活动风险汇总验证
 
-| # | Requirement | Source Text (Quote from GB/T 39335-2020 §5.7) | Report Coverage | Status |
-|---|-------------|-----------------------------------------------|-----------------|--------|
-| 5.7.1 | 报告结构完整 | [Quote §5.7 structure requirements] | [All 11 sections?] | ✅/⚠️/❌ |
-| 5.7.2 | 基本信息完备 | [Quote §5.7 info requirements] | [Check report §1] | ✅/⚠️/❌ |
-| 5.7.3 | 评估结论明确 | [Quote §5.7 conclusion requirements] | [Check report §10] | ✅/⚠️/❌ |
+| # | 要求 | 来源依据 | 检查项 | 状态 |
+|---|------|---------|-------|------|
+| V2.20 | 每组处理活动是否有风险汇总表 | 方法论要求 | [检查§X.风险汇总] | ✅/⚠️/❌ |
+| V2.21 | 汇总表是否统计各风险等级数量 | 统计完整性 | [检查统计] | ✅/⚠️/❌ |
+| V2.22 | 每组处理活动是否有整体风险等级判定 | 方法论要求 | [检查结论] | ✅/⚠️/❌ |
 
-### Section 5.8 风险处置
+### 综合评估结论验证
 
-| # | Requirement | Source Text (Quote from GB/T 39335-2020 §5.8) | Report Coverage | Status |
-|---|-------------|-----------------------------------------------|-----------------|--------|
-| 5.8.1 | 风险处置建议提出 | [Quote §5.8 disposal options] | [Check report §9] | ✅/⚠️/❌ |
-| 5.8.2 | 建议与风险等级匹配 | [Quote §5.8 matching requirements] | [Logical correspondence] | ✅/⚠️/❌ |
-
----
-
-## Checklist: Cross-Border Transfer (If Applicable)
-
-If the PIPIA involves cross-border transfer, additionally verify:
-
-**MANDATORY: Read 促进和规范数据跨境流动规定 §5-8 before verification.**
-
-| # | Requirement | Source Text (Quote from relevant regulation) | Report Coverage | Status |
-|---|-------------|----------------------------------------------|-----------------|--------|
-| CB.1 | 跨境传输路径正确判定 | [Quote 促进和规范数据跨境流动规定 §5-8 thresholds] | [Pathway identified] | ✅/⚠️/❌ |
-| CB.2 | 数据量计算准确 | [Quote threshold numbers from regulation] | [Volumes stated] | ✅/⚠️/❌ |
-| CB.3 | 接收方保护能力分析 | [Quote PIPL §38-39 requirements] | [Check report §2.5] | ✅/⚠️/❌ |
-| CB.4 | 标准合同/认证/评估要求满足 | [Quote pathway-specific requirements] | [Pathway addressed] | ✅/⚠️/❌ |
+| # | 要求 | 来源依据 | 检查项 | 状态 |
+|---|------|---------|-------|------|
+| V2.23 | 是否有各处理活动风险汇总对比表 | PIPL §56评估结论要求 | [检查§七] | ✅/⚠️/❌ |
+| V2.24 | 是否有总体风险等级判定 | PIPL §56评估结论要求 | [检查总体结论] | ✅/⚠️/❌ |
+| V2.25 | 总体风险等级判定依据是否充分 | 方法论要求 | [检查判定依据] | ✅/⚠️/❌ |
 
 ---
 
-## Checklist: Special Subjects (If Applicable)
+## 检查清单：法律要求（PIPL §55-56）
 
-### Children's PI (儿童个人信息)
+### 第五十五条触发条件
 
-**MANDATORY: Read 儿童个人信息网络保护规定 and PIPL §32 before verification.**
+**阅读PIPL §55后，填写每个要求的完整引用原文：**
 
-| # | Requirement | Source Text (Quote) | Report Coverage | Status |
-|---|-------------|---------------------|-----------------|--------|
-| CH.1 | 明确识别为儿童PI | [Quote PIPL §32/儿童规定 definition] | [Stated in §2.2] | ✅/⚠️/❌ |
-| CH.2 | 监护人同意机制分析 | [Quote 儿童规定 consent requirements] | [Check §4.3] | ✅/⚠️/❌ |
-| CH.3 | 儿童特定保护措施 | [Quote 儿童规定 §7-9 protection measures] | [Check §8] | ✅/⚠️/❌ |
+| # | 要求 | 来源原文（引用PIPL §55完整条款原文） | 报告覆盖 | 状态 |
+|---|------|--------------------------------------|----------|------|
+| 55.1 | 处理敏感个人信息 | [引用："有下列情形之一的，个人信息处理者应当事前进行个人信息保护影响评估...（一）处理敏感个人信息..."] | [检查报告§2.1] | ✅/⚠️/❌ |
+| 55.2 | 利用个人信息进行自动化决策 | [引用§55（二）完整原文] | [检查报告§2.1] | ✅/⚠️/❌ |
+| 55.3 | 委托处理/向他人提供/公开 | [引用§55（三）完整原文] | [检查报告§2.1] | ✅/⚠️/❌ |
+| 55.4 | 向境外提供个人信息 | [引用§55（四）完整原文] | [检查报告§2.1] | ✅/⚠️/❌ |
+| 55.5 | 其他对个人权益有重大影响 | [引用§55（五）完整原文] | [检查报告§2.1] | ✅/⚠️/❌ |
 
-### Sensitive PI (敏感个人信息)
+### 第五十六条内容要求
 
-**MANDATORY: Read PIPL §28-32 before verification.**
+**阅读PIPL §56后，填写完整引用原文：**
 
-| # | Requirement | Source Text (Quote from PIPL) | Report Coverage | Status |
-|---|-------------|-------------------------------|-----------------|--------|
-| SP.1 | 正确识别敏感PI类型 | [Quote PIPL §28 definition] | [Check §2.2] | ✅/⚠️/❌ |
-| SP.2 | 特定目的和必要性分析 | [Quote PIPL §29 requirements] | [Check §4.2] | ✅/⚠️/❌ |
-| SP.3 | 告知要求分析 | [Quote PIPL §30 requirements] | [Check §4.3] | ✅/⚠️/❌ |
-| SP.4 | 特别保护措施 | [Quote PIPL §31 requirements] | [Check §8] | ✅/⚠️/❌ |
-
----
-
-## Gap Classification Guidance
-
-When identifying gaps, classify severity:
-
-| Status | Meaning | Action |
-|--------|---------|--------|
-| ✅ | Fully satisfied with source quote | No action needed |
-| ⚠️ | Partially addressed or missing source quote | Needs amendment |
-| ❌ | Missing, incorrect, or contradicts source text | Critical gap |
-
-### ⚠️ Partial Gap Examples:
-- Requirement mentioned but not fully analyzed
-- Legal citation present but source text not quoted
-- Analysis present but conclusion unclear
-
-### ❌ Critical Gap Examples:
-- Required section entirely missing
-- Incorrect legal interpretation
-- No citation to source text
-- Conclusion contradicts source text
-- Agent used memory instead of reading source file
+| # | 要求 | 来源原文（引用PIPL §56完整条款原文） | 报告覆盖 | 状态 |
+|---|------|--------------------------------------|----------|------|
+| 56.1 | 处理目的、方式等是否合法、正当、必要 | [引用："个人信息保护影响评估应当包括下列内容：（一）个人信息的处理目的、处理方式等是否合法、正当、必要..."] | [检查报告§各处理活动] | ✅/⚠️/❌ |
+| 56.2 | 对个人权益的影响及安全风险 | [引用§56（二）完整原文] | [检查报告风险矩阵] | ✅/⚠️/❌ |
+| 56.3 | 保护措施是否合法、有效并与风险相适应 | [引用§56（三）完整原文] | [检查报告§处置建议] | ✅/⚠️/❌ |
 
 ---
 
-## Verification Report Template
+## 检查清单：方法论要求（GB/T 39335-2020）
 
-After completing checklist, produce Gap Report:
+### 第5.3条 数据映射分析
+
+| # | 要求 | 来源原文（引用GB/T 39335-2020） | 报告覆盖 | 状态 |
+|---|------|--------------------------------|----------|------|
+| 5.3.1 | 个人信息类型列表 | [引用§5.3要求] | [检查报告§3.2] | ✅/⚠️/❌ |
+| 5.3.2 | 处理目的说明 | [引用§5.3要求] | [检查报告§3.1] | ✅/⚠️/❌ |
+| 5.3.3 | 收集来源和方法 | [引用§5.3要求] | [检查报告§3.2] | ✅/⚠️/❌ |
+| 5.3.4 | 存储位置和期限 | [引用§5.3要求] | [检查报告§3.2] | ✅/⚠️/❌ |
+| 5.3.5 | 第三方处理情况 | [引用§5.3要求] | [检查报告§3.2] | ✅/⚠️/❌ |
+
+---
+
+## 检查清单：跨境传输（如适用）
+
+如果PIPIA涉及跨境传输，额外验证：
+
+| # | 要求 | 来源原文（引用相关法规） | 报告覆盖 | 状态 |
+|---|------|--------------------------|----------|------|
+| CB.1 | 跨境传输路径正确判定 | [引用促进和规范数据跨境流动规定 §5-8阈值] | [路径已识别] | ✅/⚠️/❌ |
+| CB.2 | 数据量计算准确 | [引用法规阈值数字] | [数据量已陈述] | ✅/⚠️/❌ |
+| CB.3 | 接收方保护能力分析 | [引用PIPL §38-39要求] | [检查报告§处理活动分析] | ✅/⚠️/❌ |
+
+---
+
+## 检查清单：特殊主体（如适用）
+
+### 儿童个人信息
+
+| # | 要求 | 来源原文（引用） | 报告覆盖 | 状态 |
+|---|------|------------------|----------|------|
+| CH.1 | 明确识别为儿童PI | [引用PIPL §28定义] | [在分组表中陈述] | ✅/⚠️/❌ |
+| CH.2 | 监护人同意机制分析 | [引用儿童规定同意要求] | [检查相关处理活动分析] | ✅/⚠️/❌ |
+
+### 敏感个人信息
+
+| # | 要求 | 来源原文（引用PIPL） | 报告覆盖 | 状态 |
+|---|------|----------------------|----------|------|
+| SP.1 | 正确识别敏感PI类型 | [引用PIPL §28定义] | [检查分组表] | ✅/⚠️/❌ |
+| SP.2 | 单独同意机制分析 | [引用PIPL §29要求] | [检查相关处理活动分析] | ✅/⚠️/❌ |
+
+---
+
+## 差距分类指引
+
+识别差距时，分类严重程度：
+
+| 状态 | 含义 | 处理 |
+|------|------|------|
+| ✅ | 完全满足并有来源引用 | 无需处理 |
+| ⚠️ | 部分处理或缺少来源引用 | 需修订 |
+| ❌ | 缺失、错误或与来源原文矛盾 | 关键差距 |
+
+### V2版特有差距类型
+
+| 差距类型 | 说明 | 示例 |
+|---------|------|------|
+| 分组不当 | 处理活动未按事实性逻辑分组 | 将不相关处理活动归为一组 |
+| 风险矩阵不完整 | 16项分析有缺失 | 某组处理活动仅分析8项 |
+| 风险等级判定错误 | 未按附录D表D.5判定 | 可能性中+影响严重应为"高"，报告判定为"中" |
+| 处置建议缺失 | 风险矩阵项无处置建议 | 表格"处置建议"列为空 |
+
+---
+
+## 验证报告模板
+
+完成检查清单后，生成差距报告：
 
 ```markdown
-## PIPIA Verification Gap Report (个人信息保护影响评估验证差距报告)
+## PIPIA验证差距报告（V2版）
 
-### Report Verified
-- File: [draft file path]
-- Iteration: [v1/v2/etc.]
-- Assessment Object: [from report]
+### 已验证报告
+- 文件：[草稿文件路径]
+- 迭代：[v1/v2等]
+- 评估对象：[来自报告]
+- 处理活动组数：[N组]
 
-### Source Files Read
-[List all source files read during verification, with evidence of reading]
+### 已阅读源文件
+[列出验证期间阅读的所有源文件，附阅读证据]
 
-### Summary Statistics
-- Total items checked: [N]
-- Fully satisfied (✅): [N]
-- Partial gaps (⚠️): [N]
-- Critical gaps (❌): [N]
+### 汇总统计
+- V2版结构检查项：[N]
+- 法律要求检查项：[N]
+- 方法论检查项：[N]
+- 完全满足（✅）：[N]
+- 部分差距（⚠️）：[N]
+- 关键差距（❌）：[N]
 
-### Legal Requirements Checklist Summary
-| Requirement Category | ✅ | ⚠️ | ❌ | Notes |
-|----------------------|----|----|-----|-------|
-| PIPL §55 triggers | | | | |
-| PIPL §56 content | | | | |
-| GB/T 39335 methodology | | | | |
-| Cross-border (if applicable) | | | | |
-| Special subjects (if applicable) | | | | |
+### V2版结构检查汇总
+| 检查类别 | ✅ | ⚠️ | ❌ | 说明 |
+|----------|----|----|-----|------|
+| 处理活动分组 | | | | |
+| 4风险源维度 | | | | |
+| 4权益影响维度 | | | | |
+| 风险矩阵详表 | | | | |
+| 风险汇总 | | | | |
+| 综合结论 | | | | |
 
-### Detailed Gaps
-For each ❌ and ⚠️:
-| Gap # | Requirement | Source Text Expected | Report Deficiency | Remediation |
-|-------|-------------|---------------------|-------------------|-------------|
-| 1 | [requirement] | [quote expected text] | [what's missing/wrong] | [what to fix] |
+### 处理活动风险矩阵完整性检查
+| 处理活动 | 16项完整 | 高风险项 | 整体风险等级 | 验证状态 |
+|---------|---------|---------|-------------|---------|
+| A | 是/否 | [N]项 | [等级] | ✅/❌ |
+| B | 是/否 | [N]项 | [等级] | ✅/❌ |
+| C | 是/否 | [N]项 | [等级] | ✅/❌ |
 
-### Verification Conclusion
-- **Gaps Found**: [X gaps requiring remediation]
-- **Ready for Delivery**: Yes/No
-- **Recommendation**: [Proceed / Amend and re-verify / Escalate to human legal review]
+### 详细差距
+对于每个❌和⚠️：
+| 差距# | 要求 | 预期来源原文 | 报告缺陷 | 修订建议 |
+|-------|------|--------------|----------|----------|
+| 1 | [要求] | [引用预期原文] | [缺失/错误内容] | [如何修订] |
+
+### 验证结论
+- **发现差距**：[X个差距需修订]
+- **可交付**：是/否
+- **建议**：[继续 / 修订并重新验证 / 升级至人工法律审查]
 ```
