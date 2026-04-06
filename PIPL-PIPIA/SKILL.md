@@ -53,10 +53,9 @@ PIPL-PIPIA/
 
 ### 如何使用源材料
 
-1. **始终首先阅读** `references/legal-source-roadmap.md` 以确定适用法律
+1. **始终首先阅读** `references/legal-source-roadmap.md` 以确定适用法律（**必须同时阅读其中"GB/T 35273-2020重要指引"部分**）
 2. **阅读主要来源**（PIPL §55-56、GB/T 39335-2020 §5）用于每份PIPIA
-3. **参照 GB/T 35273-2020 指引**：检查 `references/GBT_35273_2020-guide.md` 了解该标准的实操价值，用于补充法律条款的解释和示例
-4. **按路线图添加**跨境/行业/特殊主体相关法律
+3. **按路线图添加**跨境/行业/特殊主体相关法律
 5. **使用模板**来自 `references/pipia-report-template.md` 和 `assets/pipia-template-blank.md`
 6. **参考示例**来自 `references/practical-examples.md` 了解正确引用模式
 
@@ -68,6 +67,8 @@ PIPL-PIPIA/
 | PIPIA内容要求 | PIPL §56 | 同上 |
 | PIPIA方法论 | GB/T 39335-2020 §5 | `GB∕T39335-2020 个人信息安全影响评估指南.md` |
 | 敏感PI定义 | PIPL §28 | 同上 |
+| **敏感PI示例** | **GB/T 35273-2020 附录B** | **laws/GBT_35273_2020 个人信息安全规范.md** |
+| **PI示例** | **GB/T 35273-2020 附录A** | **同上** |
 | 跨境路径 | 促进和规范数据跨境流动规定 §5-8 | `laws/促进和规范数据跨境流动规定.md` |
 | 儿童PI | 儿童个人信息网络保护规定 | `laws/儿童个人信息网络保护规定 网信办.md` |
 
